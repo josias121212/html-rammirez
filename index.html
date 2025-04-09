@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Registro</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #e0f7fa;
+        }
+        form {
+            background: #ffffff; 
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        h2 {
+            color: #002f6c;
+        }
+    </style>
+    <script>
+        function redirectToResults() {
+            // Captura los valores del formulario
+            const nombres = document.getElementById('nombres').value;
+            const cedula = document.getElementById('cedula').value;
+            const fecha_nacimiento = document.getElementById('fecha_nacimiento').value;
+            const ciudad = document.getElementById('ciudad').value;
+            const correo = document.getElementById('correo').value;
+            const telefono = document.getElementById('telefono').value;
+            const direccion = document.getElementById('direccion').value;
+            const estado_civil = document.getElementById('estado_civil').value;
+            const etnia = document.getElementById('etnia').value;
+            const genero = document.querySelector('input[name="genero"]:checked').value;
+            const fuma = document.querySelector('input[name="fuma"]:checked').value || 'No';
+            const toma_alcohol = document.querySelector('input[name="toma_alcohol"]:checked').value || 'No';
+            const consume_drogas = document.querySelector('input[name="consume_drogas"]:checked').value || 'No';
+
+            // Crea una cadena de consulta para pasar los datos
+            const queryString = `?nombres=${encodeURIComponent(nombres)}&cedula=${encodeURIComponent(cedula)}&fecha_nacimiento=${encodeURIComponent(fecha_nacimiento)}&ciudad=${encodeURIComponent(ciudad)}&correo=${encodeURIComponent(correo)}&telefono=${encodeURIComponent(telefono)}&direccion=${encodeURIComponent(direccion)}&estado_civil=${encodeURIComponent(estado_civil)}&etnia=${encodeURIComponent(etnia)}&genero=${encodeURIComponent(genero)}&fuma=${encodeURIComponent(fuma)}&toma_alcohol=${encodeURIComponent(toma_alcohol)}&consume_drogas=${encodeURIComponent(consume_drogas)}`;
+
+            // Redirige a resultado.html con los datos
+            window.location.href = "resultado.html" + queryString;
+        }
+    </script>
+</head>
+<body>
+
+    <h2>Formulario de Registro</h2>
+    <form onsubmit="redirectToResults(); return false;">
+        <label for="nombres"><strong>Nombres:</strong></label>
+        <input type="text" id="nombres" name="nombres" required>
+
+        <label for="cedula"><strong>Número de Cédula:</strong></label>
+        <input type="text" id="cedula" name="cedula" required>
+
+        <label for="fecha_nacimiento"><strong>Fecha de Nacimiento:</strong></label>
+        <input type="date" id="fecha_nacimiento" name="fecha_nacimiento" required>
+
+        <label for="ciudad"><strong>Ciudad:</strong></label>
+        <input type="text" id="ciudad" name="ciudad" required>
+
+        <label for="correo"><strong>Correo Electrónico:</strong></label>
+        <input type="email" id="correo" name="correo" required>
+
+        <label for="telefono"><strong>Teléfono:</strong></label>
+        <input type="tel" id="telefono" name="telefono" required>
+
+        <label for="direccion"><strong>Dirección:</strong></label>
+        <textarea id="direccion" name="direccion" rows="4" required></textarea>
+
+        <label for="estado_civil"><strong>Estado Civil:</strong></label>
+        <select id="estado_civil" name="estado_civil" required>
+            <option
