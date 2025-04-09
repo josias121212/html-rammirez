@@ -26,20 +26,40 @@
 
 <h2>Resultados del Formulario</h2>
 <div class="resultado">
-    <p><strong>Nombres:</strong> Juan Pérez</p>
-    <p><strong>Número de Cédula:</strong> 123456789</p>
-    <p><strong>Fecha de Nacimiento:</strong> 1990-01-01</p>
-    <p><strong>Ciudad:</strong> Quito</p>
-    <p><strong>Correo Electrónico:</strong> juan.perez@example.com</p>
-    <p><strong>Teléfono:</strong> 0987654321</p>
-    <p><strong>Dirección:</strong> Calle Ficticia 123</p>
-    <p><strong>Estado Civil:</strong> Soltero</p>
-    <p><strong>Etnia:</strong> Mestizo</p>
-    <p><strong>Género:</strong> Masculino</p>
-    <p><strong>Fumas:</strong> No</p>
-    <p><strong>Tomas Alcohol:</strong> Sí</p>
-    <p><strong>Consumes Drogas:</strong> No</p>
+    <p><strong>Nombres:</strong> <span id="nombres"></span></p>
+    <p><strong>Número de Cédula:</strong> <span id="cedula"></span></p>
+    <p><strong>Fecha de Nacimiento:</strong> <span id="fecha_nacimiento"></span></p>
+    <p><strong>Ciudad:</strong> <span id="ciudad"></span></p>
+    <p><strong>Correo Electrónico:</strong> <span id="correo"></span></p>
+    <p><strong>Teléfono:</strong> <span id="telefono"></span></p>
+    <p><strong>Dirección:</strong> <span id="direccion"></span></p>
+    <p><strong>Estado Civil:</strong> <span id="estado_civil"></span></p>
+    <p><strong>Etnia:</strong> <span id="etnia"></span></p>
+    <p><strong>Género:</strong> <span id="genero"></span></p>
+    <p><strong>Fumas:</strong> <span id="fuma"></span></p>
+    <p><strong>Tomas Alcohol:</strong> <span id="toma_alcohol"></span></p>
+    <p><strong>Consumes Drogas:</strong> <span id="consume_drogas"></span></p>
 </div>
+
+<script>
+  
+    const urlParams = new URLSearchParams(window.location.search);
+    
+
+    document.getElementById("nombres").innerText = urlParams.get('nombres');
+    document.getElementById("cedula").innerText = urlParams.get('cedula');
+    document.getElementById("fecha_nacimiento").innerText = urlParams.get('fecha_nacimiento');
+    document.getElementById("ciudad").innerText = urlParams.get('ciudad');
+    document.getElementById("correo").innerText = urlParams.get('correo');
+    document.getElementById("telefono").innerText = urlParams.get('telefono');
+    document.getElementById("direccion").innerText = urlParams.get('direccion');
+    document.getElementById("estado_civil").innerText = urlParams.get('estado_civil');
+    document.getElementById("etnia").innerText = urlParams.get('etnia');
+    document.getElementById("genero").innerText = urlParams.get('genero');
+    document.getElementById("fuma").innerText = urlParams.get('fuma');
+    document.getElementById("toma_alcohol").innerText = urlParams.get('toma_alcohol');
+    document.getElementById("consume_drogas").innerText = urlParams.get('consume_drogas');
+</script>
 
 </body>
 </html>
