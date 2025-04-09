@@ -29,35 +29,11 @@
             color: #002f6c;
         }
     </style>
-    <script>
-        function redirectToResults() {
-            // Captura los valores del formulario
-            const nombres = document.getElementById('nombres').value;
-            const cedula = document.getElementById('cedula').value;
-            const fecha_nacimiento = document.getElementById('fecha_nacimiento').value;
-            const ciudad = document.getElementById('ciudad').value;
-            const correo = document.getElementById('correo').value;
-            const telefono = document.getElementById('telefono').value;
-            const direccion = document.getElementById('direccion').value;
-            const estado_civil = document.getElementById('estado_civil').value;
-            const etnia = document.getElementById('etnia').value;
-            const genero = document.querySelector('input[name="genero"]:checked').value;
-            const fuma = document.querySelector('input[name="fuma"]:checked').value || 'No';
-            const toma_alcohol = document.querySelector('input[name="toma_alcohol"]:checked').value || 'No';
-            const consume_drogas = document.querySelector('input[name="consume_drogas"]:checked').value || 'No';
-
-            // Crea una cadena de consulta para pasar los datos
-            const queryString = `?nombres=${encodeURIComponent(nombres)}&cedula=${encodeURIComponent(cedula)}&fecha_nacimiento=${encodeURIComponent(fecha_nacimiento)}&ciudad=${encodeURIComponent(ciudad)}&correo=${encodeURIComponent(correo)}&telefono=${encodeURIComponent(telefono)}&direccion=${encodeURIComponent(direccion)}&estado_civil=${encodeURIComponent(estado_civil)}&etnia=${encodeURIComponent(etnia)}&genero=${encodeURIComponent(genero)}&fuma=${encodeURIComponent(fuma)}&toma_alcohol=${encodeURIComponent(toma_alcohol)}&consume_drogas=${encodeURIComponent(consume_drogas)}`;
-
-            // Redirige a resultado.html con los datos
-            window.location.href = "resultado.html" + queryString;
-        }
-    </script>
 </head>
 <body>
 
     <h2>Formulario de Registro</h2>
-    <form onsubmit="redirectToResults(); return false;">
+    <form action="resultado.html" method="GET">
         <label for="nombres"><strong>Nombres:</strong></label>
         <input type="text" id="nombres" name="nombres" required>
 
@@ -81,4 +57,47 @@
 
         <label for="estado_civil"><strong>Estado Civil:</strong></label>
         <select id="estado_civil" name="estado_civil" required>
-            <option
+            <option value="soltero">Soltero</option>
+            <option value="casado">Casado</option>
+            <option value="divorciado">Divorciado</option>
+            <option value="viudo">Viudo</option>
+        </select>
+
+        <label for="etnia"><strong>Etnia:</strong></label>
+        <select id="etnia" name="etnia" required>
+            <option value="mestizo">Mestizo</option>
+            <option value="indigena">Indígena</option>
+            <option value="afrodescendiente">Afrodescendiente</option>
+            <option value="blanco">Blanco</option>
+            <option value="otro">Otro</option>
+        </select>
+
+        <label><strong>Género:</strong></label><br>
+        <input type="radio" id="masculino" name="genero" value="masculino" required>
+        <label for="masculino">Masculino</label><br>
+        <input type="radio" id="femenino" name="genero" value="femenino" required>
+        <label for="femenino">Femenino</label><br><br>
+
+        <label><strong>¿Fumas?</strong></label><br>
+        <input type="radio" id="fuma_si" name="fuma" value="si">
+        <label for="fuma_si">Sí</label>
+        <input type="radio" id="fuma_no" name="fuma" value="no">
+        <label for="fuma_no">No</label><br><br>
+        
+        <label><strong>¿Tomas Alcohol?</strong></label><br>
+        <input type="radio" id="toma_alcohol_si" name="toma_alcohol" value="si">
+        <label for="toma_alcohol_si">Sí</label>
+        <input type="radio" id="toma_alcohol_no" name="toma_alcohol" value="no">
+        <label for="toma_alcohol_no">No</label><br>
+        
+        <label><strong>¿Consumes Drogas?</strong></label><br>
+        <input type="radio" id="consume_drogas_si" name="consume_drogas" value="si">
+        <label for="consume_drogas_si">Sí</label>
+        <input type="radio" id="consume_drogas_no" name="consume_drogas" value="no">
+        <label for="consume_drogas_no">No</label><br><br>
+
+        <button type="submit" style="padding: 15px 20px; font-size: 16px; background-color: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer;">Enviar</button>
+    </form>
+
+</body>
+</html>
